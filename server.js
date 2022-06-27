@@ -9,28 +9,65 @@ const foodStyles = {
   'pizza': [
     {
       'name': 'ラ・ゴロセッタ',
-      'area': ['minami-senba']
+      'area': 'minami-senba',
+      'firstTime': false
+    },
+    {
+      'name': 'Domino\'s',
+      'area': 'delivery',
+      'firstTime': false
     }
   ],
   'sushi': [
     {
       'name': 'スシロー',
-      'area': ['shinsaibashi', 'taisho', 'others']
+      'area': ['shinsaibashi', 'taisho', 'others'],
+      'firstTime': false
     }
   ],
   'yakiniku': [
     {
       'name': '蔓（つる）',
-      'area': ['ライフの近く']
+      'area': 'ライフの近く',
+      'firstTime': false
     },
     {
       'name': '天乃',
-      'area': ['家の近く']
+      'area': '家の近く',
+      'firstTime': false
+    }
+  ],
+  'hamburgers': [
+    {
+      'name': 'McDonald\'s',
+      'area': 'delivery',
+      'firstTime': false
+    },
+    {
+      'name': 'Burger King',
+      'area': 'delivery',
+      'firstTime': false
+    },
+    {
+      'name': 'Mos burgers',
+      'area': 'delivery',
+      'firstTime': false
+    },
+    {
+      'name': 'kua aina',
+      'area': 'Umeda',
+      'firstTime': false
+    },
+    {
+      'name': 'Craft Burger',
+      'area': 'Kitahorie',
+      'firstTime': false
     }
   ],
   'default': {
     'name': 'home',
-    'area': 'matsuyamachi'
+    'area': 'matsuyamachi',
+    'firstTime': false
   }
 }
 
