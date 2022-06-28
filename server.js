@@ -3,6 +3,7 @@ const app = express()
 const cors = require('cors')
 const PORT = 8000
 
+app.use(express.static('public'))
 app.use(cors())
 
 const foodStyles = {
@@ -77,7 +78,7 @@ app.get('/', (req, res) => {
 })
 
 app.get('/api/:style', (req, res) => {
-  const foodStyle = req.params.style
+  const foodStyle = req.params.style.toLowerCase()
   // res.json(foodStyles)
   if(foodStyles[foodStyle]) {
     res.json(foodStyles[foodStyle])
