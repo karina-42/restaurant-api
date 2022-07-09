@@ -64,12 +64,7 @@ const foodStyles = {
       'area': 'Kitahorie',
       'firstTime': false
     }
-  ],
-  'default': {
-    'name': 'home',
-    'area': 'matsuyamachi',
-    'firstTime': false
-  }
+  ]
 }
 
 
