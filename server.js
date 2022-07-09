@@ -77,6 +77,10 @@ app.get('/', (req, res) => {
   res.sendFile(__dirname + '/index.html')
 })
 
+app.get('/api', (req, res) => {
+  res.json(foodStyles)
+})
+
 app.get('/api/:style', (req, res) => {
   const foodStyle = req.params.style.toLowerCase()
   // res.json(foodStyles)
