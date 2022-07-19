@@ -9,66 +9,66 @@ app.use(express.static('public'))
 app.use(cors())
 app.use(express.json())
 
-const foodStyles = {
-  'pizza': [
-    {
-      'name': 'ラ・ゴロセッタ',
-      'area': 'Minami-Senba',
-      'firstTime': false
-    },
-    {
-      'name': 'Domino\'s',
-      'area': 'delivery',
-      'firstTime': false
-    }
-  ],
-  'sushi': [
-    {
-      'name': 'スシロー',
-      'area': ['Shinsaibashi', 'Taisho', 'others'],
-      'firstTime': false
-    }
-  ],
-  'yakiniku': [
-    {
-      'name': '蔓（つる）',
-      'area': 'ライフの近く',
-      'firstTime': false
-    },
-    {
-      'name': '天乃',
-      'area': '家の近く',
-      'firstTime': false
-    }
-  ],
-  'hamburgers': [
-    {
-      'name': 'McDonald\'s',
-      'area': 'delivery',
-      'firstTime': false
-    },
-    {
-      'name': 'Burger King',
-      'area': 'delivery',
-      'firstTime': false
-    },
-    {
-      'name': 'Mos burgers',
-      'area': 'delivery',
-      'firstTime': false
-    },
-    {
-      'name': 'kua aina',
-      'area': 'Umeda',
-      'firstTime': false
-    },
-    {
-      'name': 'Craft Burger',
-      'area': 'Kitahorie',
-      'firstTime': false
-    }
-  ]
-}
+// const foodStyles = {
+//   'pizza': [
+//     {
+//       'name': 'ラ・ゴロセッタ',
+//       'area': 'Minami-Senba',
+//       'firstTime': false
+//     },
+//     {
+//       'name': 'Domino\'s',
+//       'area': 'delivery',
+//       'firstTime': false
+//     }
+//   ],
+//   'sushi': [
+//     {
+//       'name': 'スシロー',
+//       'area': ['Shinsaibashi', 'Taisho', 'others'],
+//       'firstTime': false
+//     }
+//   ],
+//   'yakiniku': [
+//     {
+//       'name': '蔓（つる）',
+//       'area': 'ライフの近く',
+//       'firstTime': false
+//     },
+//     {
+//       'name': '天乃',
+//       'area': '家の近く',
+//       'firstTime': false
+//     }
+//   ],
+//   'hamburgers': [
+//     {
+//       'name': 'McDonald\'s',
+//       'area': 'delivery',
+//       'firstTime': false
+//     },
+//     {
+//       'name': 'Burger King',
+//       'area': 'delivery',
+//       'firstTime': false
+//     },
+//     {
+//       'name': 'Mos burgers',
+//       'area': 'delivery',
+//       'firstTime': false
+//     },
+//     {
+//       'name': 'kua aina',
+//       'area': 'Umeda',
+//       'firstTime': false
+//     },
+//     {
+//       'name': 'Craft Burger',
+//       'area': 'Kitahorie',
+//       'firstTime': false
+//     }
+//   ]
+// }
 
 
 MongoClient.connect(connectionString)
@@ -81,9 +81,13 @@ MongoClient.connect(connectionString)
       res.sendFile(__dirname + '/index.html')
     })
 
-    // app.get('/api', (req, res) => {
-    //   res.json(foodStyles)
-    // })
+    app.get('/api', (req, res) => {
+      infoCollection.find({}).toArray()
+      .then(results => {
+        res.json(results)
+      })
+      
+    })
 
     app.get('/api/:style', (req, res) => {
       const foodStyle = req.params.style.toLowerCase()
