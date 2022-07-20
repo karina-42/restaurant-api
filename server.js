@@ -1,14 +1,14 @@
 const express = require('express')
 const app = express()
 const cors = require('cors')
-const PORT = 8000
 const MongoClient = require('mongodb').MongoClient
-const connectionString = 'mongodb+srv://karina:dwkafP465ALCqkUU@cluster0.pyftha1.mongodb.net/?retryWrites=true&w=majority'
+require('dotenv').config()
 
 app.use(express.static('public'))
 app.use(cors())
 app.use(express.json())
 
+let connectionString = process.env.DB_connectionString
 MongoClient.connect(connectionString)
   .then(client => {
     console.log('connnnected!')
@@ -38,5 +38,5 @@ MongoClient.connect(connectionString)
   .catch(error => console.log(error))
 
 app.listen(process.env.PORT || PORT, () => {
-  console.log(`catch server at ${PORT}!`);
+  console.log(`catch server at ${process.env.PORT || PORT}!`);
 })
